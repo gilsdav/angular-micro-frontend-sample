@@ -24,12 +24,17 @@
             "tsConfig": "src/tsconfig.app.json",
             "assets": [
               "src/favicon.ico",
-              "src/assets"
+              "src/assets",
+              "src/elements"
             ],
             "styles": [
               "src/styles.scss"
             ],
-            "scripts": []
+            "scripts": [
+              {
+                "input": "node_modules/document-register-element/build/document-register-element.js"
+              }
+            ]
           },
           "configurations": {
             "production": {
@@ -127,6 +132,260 @@
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": "e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "micro-one": {
+      "root": "projects/micro-one/",
+      "sourceRoot": "projects/micro-one/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/micro-one",
+            "index": "projects/micro-one/src/index.html",
+            "main": "projects/micro-one/src/main.ts",
+            "polyfills": "projects/micro-one/src/polyfills.ts",
+            "tsConfig": "projects/micro-one/tsconfig.app.json",
+            "assets": [
+              "projects/micro-one/src/favicon.ico",
+              "projects/micro-one/src/assets"
+            ],
+            "styles": [
+              "projects/micro-one/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/micro-one/src/environments/environment.ts",
+                  "with": "projects/micro-one/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "micro-one:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "micro-one:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "micro-one:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/micro-one/src/test.ts",
+            "polyfills": "projects/micro-one/src/polyfills.ts",
+            "tsConfig": "projects/micro-one/tsconfig.spec.json",
+            "karmaConfig": "projects/micro-one/karma.conf.js",
+            "styles": [
+              "projects/micro-one/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/micro-one/src/favicon.ico",
+              "projects/micro-one/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/micro-one/tsconfig.app.json",
+              "projects/micro-one/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "micro-one-e2e": {
+      "root": "projects/micro-one-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/micro-one-e2e/protractor.conf.js",
+            "devServerTarget": "micro-one:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "micro-one:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/micro-one-e2e/tsconfig.e2e.json",
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "micro-two": {
+      "root": "projects/micro-two/",
+      "sourceRoot": "projects/micro-two/src",
+      "projectType": "application",
+      "prefix": "app",
+      "schematics": {},
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/micro-two",
+            "index": "projects/micro-two/src/index.html",
+            "main": "projects/micro-two/src/main.ts",
+            "polyfills": "projects/micro-two/src/polyfills.ts",
+            "tsConfig": "projects/micro-two/tsconfig.app.json",
+            "assets": [
+              "projects/micro-two/src/favicon.ico",
+              "projects/micro-two/src/assets"
+            ],
+            "styles": [
+              "projects/micro-two/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "fileReplacements": [
+                {
+                  "replace": "projects/micro-two/src/environments/environment.ts",
+                  "with": "projects/micro-two/src/environments/environment.prod.ts"
+                }
+              ],
+              "optimization": true,
+              "outputHashing": "all",
+              "sourceMap": false,
+              "extractCss": true,
+              "namedChunks": false,
+              "aot": true,
+              "extractLicenses": true,
+              "vendorChunk": false,
+              "buildOptimizer": true,
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
+                }
+              ]
+            }
+          }
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "micro-two:build"
+          },
+          "configurations": {
+            "production": {
+              "browserTarget": "micro-two:build:production"
+            }
+          }
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "micro-two:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/micro-two/src/test.ts",
+            "polyfills": "projects/micro-two/src/polyfills.ts",
+            "tsConfig": "projects/micro-two/tsconfig.spec.json",
+            "karmaConfig": "projects/micro-two/karma.conf.js",
+            "styles": [
+              "projects/micro-two/src/styles.css"
+            ],
+            "scripts": [],
+            "assets": [
+              "projects/micro-two/src/favicon.ico",
+              "projects/micro-two/src/assets"
+            ]
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": [
+              "projects/micro-two/tsconfig.app.json",
+              "projects/micro-two/tsconfig.spec.json"
+            ],
+            "exclude": [
+              "**/node_modules/**"
+            ]
+          }
+        }
+      }
+    },
+    "micro-two-e2e": {
+      "root": "projects/micro-two-e2e/",
+      "projectType": "application",
+      "prefix": "",
+      "architect": {
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "projects/micro-two-e2e/protractor.conf.js",
+            "devServerTarget": "micro-two:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "micro-two:serve:production"
+            }
+          }
+        },
+        "lint": {
+          "builder": "@angular-devkit/build-angular:tslint",
+          "options": {
+            "tsConfig": "projects/micro-two-e2e/tsconfig.e2e.json",
             "exclude": [
               "**/node_modules/**"
             ]

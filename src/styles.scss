@@ -1,1 +1,318 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url(https://fonts.googleapis.com/css?family=Roboto:400,100,300);
+
+html, body{
+  margin: 0;  
+  font-family: 'Roboto';
+  background: #f1f1f1;
+  overflow: auto;
+}
+
+#cont:target{
+  & > menu-fixed{
+    width: 120px;
+    background: #111;
+    transition: all 0.3s;
+    & > a .material-icons.back{
+      display: none;
+    } 
+    & > .menu li{
+      text-align: center;
+      width: 40%;
+      & > p{
+        display: none;
+      }
+    }
+  }
+}
+
+#menu-fixed{
+  width: 120px;
+  z-index: 2;
+  height: 100%;
+  background: #0F0F0F;
+  position: fixed;
+  top: 0;
+  transition: all 0.3s;
+  box-shadow: 10px 0px 10px rgba(0,0,0,0.19), 8px 0px 10px rgba(0,0,0,0.23);
+  text-align: center;
+  overflow: auto;
+  
+  .material-icons.back{
+    display: none;
+    color: white;
+    position: absolute;
+    left: 10px;
+    top: 10px;
+    font-size: 36px;
+    cursor: pointer;
+    transition: color 0.3s;
+    &:hover{
+      color:  #009688;
+      transition: color 0.3s;
+    }
+  }
+  
+  &:target{
+    width: 280px;
+    background: #000;
+    transition: all 0.3s ease-out;
+    & > .notes{
+      transition: all 0.2s;
+      z-index: 0;
+      opacity: 0;
+    }
+    & > a .material-icons.back{
+      display: block;
+    }
+    & > a{
+      & > .logo{
+        width: 60%;
+        height: 47px;
+        margin: auto;
+        & > span{
+          display: none;
+        }
+        & > p{
+          display: block;
+        }
+      }
+    }
+    & > .menu li{
+        text-align: left;
+        width: 60%;
+      &:hover{
+        &::after{
+          content:'';
+          display: block;
+          position: absolute;
+          background: rgba(38, 166, 154, 0.1);
+          width: 100%;
+          height: 100%;
+          top: 0;
+          left: 0;
+          border-radius: 4px;
+        }
+        & > p{
+          color: white;
+        }
+      }
+      & > p{
+        display: inline-block;        
+      }
+    }
+  }
+  .logo{
+    width: 100%;
+    height: 70px;
+    position: relative;
+    cursor: pointer;
+    p{
+      display: none;
+      color: #999;
+      font-size: 23px;
+      padding-bottom: 0;
+      font-weight: 300;
+    }
+    span{
+      width: 10px;
+      height: 10px;
+      backrground: #0A0A0A;
+      position: absolute;
+      margin: auto;
+      left: 0;
+      right: 0;
+      top: 25px;
+      transform: rotateZ(45deg);
+      -webkit-transform: rotateZ(45deg);
+      border: 8px solid white; 
+      transition: all 0.2s;
+    }
+    &:hover ~ p{
+      color: white;
+      transition: all 0.3s;
+    }
+    &:hover > span{
+        width: 0;
+        height: 0;
+        border-left: 15px solid white;
+        border-right: 15px solid rgba(0,0,0,0);
+        border-top: 15px solid rgba(0,0,0,0);
+        border-bottom: 15px solid rgba(0,0,0,0);
+        transition: all 0.2s;
+        transform: rotateZ(0deg) translateX(10px);
+        -webkit-transform: rotateZ(0deg) translateX(10px);
+      &::after{
+        content:'';
+        display: block;
+        width: 0;
+        height: 0;
+        border-left: 8px solid #111;
+        border-right: 8px solid rgba(0,0,0,0);
+        border-top: 8px solid rgba(0,0,0,0);
+        border-bottom: 8px solid rgba(0,0,0,0);
+        left: -15px;
+        position: absolute;
+        top: -8px;
+      }
+      }
+  }
+  .pmenu{
+    margin: 0;
+    text-align: center;
+    color: rgba(255,255,255,0.4);
+    font-size: 14px;
+    font-weight: 300;
+  }
+  hr{
+    width: 75%;
+    border: 1px solid rgba(255,255,255,0.2);
+  }
+  .menu{
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    li{
+      padding: 15px;
+      width: 40%;
+      margin: auto;
+      border-bottom: 1px solid rgba(255,255,255,0.1);
+      border-bottom-style:dotted;
+      cursor: pointer;
+      overflow: hidden;
+      position: relative;
+      transition: all 0.3s;
+      &:last-child{
+        border: none;
+      }
+      &:hover{
+        background: #000;
+        transition: all 0.3s;
+        &>.material-icons{
+          color: white;
+        }
+      }
+      .material-icons{
+        color: #999;
+      }
+      p{
+        display: none;
+        margin: auto;
+        color: #888;
+        font-size: 14px;
+        font-weight: 300;
+        position: absolute;
+        padding-left: 30px;
+        line-height: 30px;
+      }
+    }
+  }
+}
+
+.material-icons.info{
+  color: #999;
+  position: absolute;
+  margin: 0;
+  bottom: 20px;
+  left: 0;
+  right: 0;
+}
+
+#page{
+  max-width: 1024px;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+  margin-bottom: 50px;
+  margin-top: 50px;
+  position: relative;
+//   div{
+//     width: 100%;
+//     height: 100%;
+//     box-shadow: 0 10px 20px   rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+//     background: white;
+//     z-index: 1;
+//   }
+}
+
+a:link, a:visited{
+  text-decoration: none;
+}
+
+.notes{
+  position: fixed;
+  width: 100px;
+  height: 70px;
+  top: 20px;
+  left: 130px;
+  z-index: 5;
+  background:  #009688;
+  border-radius: 10px;
+  transition: all 0.6s;
+  &::after{
+    content: '';
+    display: block;
+    position: fixed;
+    width: 0px;
+    height: 0px;
+    top: 50px;
+    left: 115px;
+    border-top: 8px solid rgba(0,0,0,0);
+    border-bottom: 8px solid rgba(0,0,0,0);
+    border-left: 8px solid rgba(0,0,0,0);
+    border-right: 8px solid  #009688;
+  }
+  p{
+    color: #222;
+    padding: 12px;
+    margin: 0;
+  }
+}
+
+
+
+// Loader
+
+[class*="loader-"] {
+    display: block;
+    margin: auto;
+    margin-top: 150px;
+	width: 100px;
+	height: 100px;
+	color: inherit;
+	vertical-align: middle;
+	pointer-events: none;
+}
+
+.loader-05 {
+	border: 20px solid transparent;
+	border-top-color: currentcolor;
+	border-radius: 50%;
+	animation: 1s loader-05 linear infinite;
+	position: relative;
+	&:before {
+		content: '';
+		display: block;
+		width: inherit;
+		height: inherit;
+		position: absolute;
+		top: -20px;
+		;
+		left: -20px;
+		;
+		border: 20px solid currentcolor;
+		border-radius: 50%;
+		opacity: .5;
+	}
+}
+
+@keyframes loader-05 {
+	0% {
+		transform: rotate(0deg);
+	}
+	100% {
+		transform: rotate(360deg);
+	}
+}
