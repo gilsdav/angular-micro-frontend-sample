@@ -3,13 +3,19 @@ import { NgModule, Injector } from '@angular/core';
 import { createCustomElement } from '@angular/elements';
 
 import { AppComponent } from './app.component';
+import { CoucouComponent } from './components/coucou/coucou.component';
+import { AppRoutingModule } from './app-routing.module';
+import { BlankComponent } from 'shared/components/blank/blank.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    CoucouComponent,
+    BlankComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    AppRoutingModule
   ],
   providers: [],
   entryComponents: [AppComponent]
