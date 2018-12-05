@@ -9,22 +9,24 @@ const concat = require('concat');
     './dist/micro-two/main.js'
   ];
 
-  await fs.ensureDir('src/elements');
-  await concat(files, 'src/elements/micro-two.js');
-//   await fs.copyFile(
-//     './dist/micro-onestyles.css',
-//     'elements/styles.css'
-//   );
+//   await fs.ensureDir('src/elements');
+//   await concat(files, 'src/elements/micro-two.js');
+// //   await fs.copyFile(
+// //     './dist/micro-onestyles.css',
+// //     'elements/styles.css'
+// //   );
 
-  // https://github.com/angular/angular/issues/23732
-  fs.readFile('src/elements/micro-two.js', 'utf8', function (err,data) {
-    if (err) {
-      return console.log(err);
-    }
-    var result = data.replace(/webpackJsonp/g, 'webpackJsonpM2');
-    fs.writeFile('src/elements/micro-two.js', result, 'utf8', function (err) {
-      if (err) return console.log(err);
-    });
-  });
+//   // https://github.com/angular/angular/issues/23732
+//   fs.readFile('src/elements/micro-two.js', 'utf8', function (err,data) {
+//     if (err) {
+//       return console.log(err);
+//     }
+//     var result = data.replace(/webpackJsonp/g, 'webpackJsonpM2');
+//     fs.writeFile('src/elements/micro-two.js', result, 'utf8', function (err) {
+//       if (err) return console.log(err);
+//     });
+//   });
+
+  await fs.copy('./dist/micro-two', 'src/elements/two');
 
 })();

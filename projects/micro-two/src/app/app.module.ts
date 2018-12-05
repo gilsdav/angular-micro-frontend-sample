@@ -1,6 +1,5 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Injector } from '@angular/core';
-import { createCustomElement } from '@angular/elements';
+import { NgModule } from '@angular/core';
 
 import { AppComponent } from './app.component';
 
@@ -12,17 +11,7 @@ import { AppComponent } from './app.component';
     BrowserModule
   ],
   providers: [],
-  entryComponents: [AppComponent]
+  bootstrap: [AppComponent]
 })
 export class AppModule {
-
-  constructor(injector: Injector) {
-    const el = createCustomElement(AppComponent, { injector });
-    if (!customElements.get('micro-two')) {
-      customElements.define('micro-two', el);
-    }
-  }
-
-  ngDoBootstrap() {}
-
 }

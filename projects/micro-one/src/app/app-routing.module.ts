@@ -6,17 +6,17 @@ import { BlankComponent } from 'shared/components/blank/blank.component';
 
 const routes: Routes = [
   {
-    path: environment.baseAppUrl,
-    children: [
-      {
-        path: '',
-        component: BlankComponent
-      },
-      {
-        path: 'coucou',
-        component: CoucouComponent
-      }
-    ]
+    path: '',
+    pathMatch: 'full',
+    redirectTo: '/home'
+  },
+  {
+    path: 'home',
+    component: BlankComponent
+  },
+  {
+    path: 'coucou',
+    component: CoucouComponent
   }
 ];
 

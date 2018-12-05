@@ -1,6 +1,10 @@
 import { BrowserModule } from '@angular/platform-browser';
-import { NgModule, Injector } from '@angular/core';
-import { createCustomElement } from '@angular/elements';
+import { NgModule } from '@angular/core';
+
+import { RoutedApp } from 'meta-spa-router';
+import { InjectionToken } from '@angular/core';
+
+export const ROUTED_APP = new InjectionToken<RoutedApp>('ROUTED_APP');
 
 import { AppComponent } from './app.component';
 import { CoucouComponent } from './components/coucou/coucou.component';
@@ -17,18 +21,8 @@ import { BlankComponent } from 'shared/components/blank/blank.component';
     BrowserModule,
     AppRoutingModule
   ],
-  providers: [],
-  entryComponents: [AppComponent]
+  providers: [{ provide: ROUTED_APP, useFactory: () => new RoutedApp() }],
+  bootstrap: [AppComponent]
 })
 export class AppModule {
-
-  constructor(injector: Injector) {
-    const el = createCustomElement(AppComponent, { injector });
-    if (!customElements.get('micro-one')) {
-      customElements.define('micro-one', el);
-    }
-  }
-
-  ngDoBootstrap() {}
-
 }

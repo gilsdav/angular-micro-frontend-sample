@@ -12,8 +12,7 @@ import { BlankComponent } from 'shared/components/blank/blank.component';
     BlankComponent
   ],
   imports: [
-    BrowserModule,
-    AppRoutingModule
+    BrowserModule
   ],
   providers: [],
   bootstrap: [AppComponent]

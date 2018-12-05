@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { environment } from '../../../environments/environment';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-coucou',
@@ -10,12 +10,14 @@ export class CoucouComponent implements OnInit {
 
   baseAppUrl: string;
 
-  constructor() {
-    this.baseAppUrl = `/${environment.baseAppUrl}`;
-    console.log('coucou base', this.baseAppUrl);
+  constructor(private route: ActivatedRoute) {
+    console.log('coucou base');
   }
 
   ngOnInit() {
+    this.route.queryParams.subscribe(params => {
+      console.log('query param: ', params['test']);
+    });
   }
 
 }

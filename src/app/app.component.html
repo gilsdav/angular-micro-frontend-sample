@@ -6,23 +6,21 @@
     </a>
     <a href="#menu-fixed">
       <div class="logo">
-        <span></span>   
+        <span></span>
         <p>TITLE</p>
       </div>
       <p class="pmenu">MENU</p>
     </a>
     <hr>
     <ul class="menu">
-      <li><a [routerLink]="['/one']"><i class="material-icons">&#xE88A;</i><p>One</p></a></li>
-      <li><a [routerLink]="['/two']"><i class="material-icons">&#xE87A;</i><p>Two</p></a></li>
+      <li><a (click)="navigate('one')"><i class="material-icons">&#xE88A;</i><p>One</p></a></li>
+      <li><a (click)="navigate('two')"><i class="material-icons">&#xE87A;</i><p>Two</p></a></li>
     </ul>
     <i class="material-icons info">&#xE88E;</i>
   </div>
-  </div>
-  
-  <div id="page">
-    <div [innerHTML]="toShow"></div>
-  </div>
 
-  <router-outlet></router-outlet>
-  
+</div>
+
+<div id="page">
+  <div id="outlet"></div>
+</div>
