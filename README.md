@@ -1,5 +1,7 @@
 # MicroFront
 
+> Since Angular 9, Ivy allow micro frontend using its private API. Check [this repo](https://github.com/gilsdav/angular-ivy-web-component) if you are interested.
+
 ## Try app
 
 Execute this scripts in the order:
